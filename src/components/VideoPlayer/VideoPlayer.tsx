@@ -1,4 +1,7 @@
-import React, { FC, IframeHTMLAttributes, useRef } from 'react';
+import React, { FC, useRef, useState } from 'react';
+import { VideoOverlay } from '../VideoOverlay/VideoOverlay';
+
+import './video-player.css';
 
 interface IVideoPlayerProps {
     source: string;
@@ -7,25 +10,28 @@ interface IVideoPlayerProps {
 export const VideoPlayer: FC<IVideoPlayerProps> = (props): JSX.Element => {
     const {source} = props;
 
-    const videoRef = useRef<HTMLIFrameElement>(null);
+    const [isVisibleOverlay, setIsVisibleOverlay] = useState<boolean>(false);
+    const [overlayHeight, setOverlayHeight] = useState<number>(500);
 
-    const goFullScreen = () => {
-        if (videoRef.current?.requestFullscreen) {
-            console.log(123);
-            videoRef.current.requestFullscreen();
-        }
-    };
-    const closeScreen = async () => {
-      if (!document.exitFullscreen) {
-        document.exitFullscreen();
-      }
-    };
+    const videoRef = useRef<HTMLDivElement>(null);
 
+    const handleShowOverlay = (): void => setIsVisibleOverlay(true);
+
+    const handleHideOverlay = (): void => setIsVisibleOverlay(false);
+
+    const handleGoFullScreen = (height: number): void => setOverlayHeight(height);
 
     return (
-        <>
-            <button onClick={goFullScreen}>Go</button>
-            <iframe ref={videoRef} width="560" height="315" src="https://www.youtube.com/embed/E7wJTI-1dvQ?controls=0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-        </>
+        <div className='video-container' ref={videoRef} onMouseEnter={handleShowOverlay} onMouseLeave={handleHideOverlay}>
+            <iframe
+                width="100%"
+                height={overlayHeight}
+                src={source}
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen />
+            {isVisibleOverlay ? <VideoOverlay onGoFullScreen={handleGoFullScreen} videoRef={videoRef} /> : null}
+        </div>
     )
 }

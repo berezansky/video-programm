@@ -3,7 +3,7 @@ import { VideoPlayer } from './components/VideoPlayer/VideoPlayer';
 import videoList from './mock/videoList.json';
 
 function App() {
-  const [currentVideo, setCurrentVideo] = useState<string>(videoList[1]);
+  const [currentVideo, setCurrentVideo] = useState<string>(videoList[0].link);
 
   return (
     <div className="App">

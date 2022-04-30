@@ -1,7 +1,27 @@
-{
-    "1": "https://youtu.be/embed/hVkEYk1V88U",
-    "2": "https://www.youtube.com/watch?v=cT2bqq97QZ0&ab_channel=Gala.Z",
-    "3": "https://www.youtube.com/watch?v=NExjNEvVWcg&ab_channel=JesusMontesF%26N",
-    "4": "https://www.youtube.com/watch?v=KsqK85PfIQY&ab_channel=KausBorealis",
-    "5": "https://www.youtube.com/watch?v=nq4tT68UoCg&ab_channel=RelaxationAmbientMusic"
-}
+[
+    {
+        "id": 1,
+        "title": "Stive Morgan - The Best",
+        "link": "https://www.youtube.com/embed/D-ci8xCPdsU?controls=0"
+    },
+    {
+        "id": 2,
+        "title": "STIVE MORGAN & WIND OF BURI - LIFE - 2021 -",
+        "link": "https://www.youtube.com/embed/NExjNEvVWcg?controls=0"
+    },
+    {
+        "id": 3,
+        "title": "Музыка космоса. Поражающая красота вселенной под успокаивающую мелодию. Ambient Space Music",
+        "link": "https://www.youtube.com/embed/KsqK85PfIQY?controls=0"
+    },
+    {
+        "id": 4,
+        "title": "✨ Space Ambient Music • Deep Relaxation Space Scenes [ 4K UHD ]",
+        "link": "https://www.youtube.com/embed/tGc9n1lc21Q?controls=0"
+    },
+    {
+        "id": 5,
+        "title": "✨ Space Ambient Music • Deep Relaxation Space Journey [ 4K UHD ]",
+        "link": "https://www.youtube.com/embed/nq4tT68UoCg?controls=0"
+    }
+]
