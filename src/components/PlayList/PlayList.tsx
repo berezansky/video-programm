@@ -1,13 +1,25 @@
 import React, { FC } from 'react';
+import { IVideoList } from '../../Consts/Consts';
 
-interface IVideoPlayerProps {
-    source: string;
+import './playlist.css'
+
+interface IPlaylistProps {
+    playlist: IVideoList[];
 }
 
-export const PlayList: FC<IVideoPlayerProps> = (props): JSX.Element => {
-    const {source} = props;
+export const PlayList: FC<IPlaylistProps> = (props): JSX.Element => {
+    const {playlist} = props;
 
     return (
-        <video src={source} />
+        <div className='playlist-wrapper'>
+            <ul>
+                {playlist.map((el) => (
+                    <li>
+                        <div className="video-image" />
+                        <a href={el.link}>{el.title}</a>
+                    </li>
+                ))}
+            </ul>
+        </div>
     )
 }

@@ -1,13 +1,15 @@
 import React, { FC } from 'react';
 
-interface IVideoPlayerProps {
-    source: string;
+interface IVideoDataProps {
+    title: string;
 }
 
-export const VideoData: FC<IVideoPlayerProps> = (props): JSX.Element => {
-    const {source} = props;
+export const VideoData: FC<IVideoDataProps> = (props): JSX.Element => {
+    const {title} = props;
 
     return (
-        <video src={source} />
+        <div>
+            <p>{title}</p>
+        </div>
     )
 }

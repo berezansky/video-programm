@@ -16,7 +16,7 @@ export const VideoOverlay: FC<IVideoPlayerProps> = (props): JSX.Element => {
         if (videoRef.current?.requestFullscreen && !document.fullscreenElement) {
             videoRef.current.requestFullscreen().then(() => onGoFullScreen(window.outerHeight));
         } else if (document.fullscreenElement) {
-            document.exitFullscreen().then(() => onGoFullScreen(400));
+            document.exitFullscreen().then(() => onGoFullScreen(500));
         }
     }; 
 

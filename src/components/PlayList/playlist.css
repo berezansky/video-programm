@@ -1,0 +1,31 @@
+.playlist-wrapper {
+    max-width: 500px;
+    padding-left: 20px;
+}
+
+.playlist-wrapper ul {
+    padding: 0;
+    list-style: none;
+}
+
+.playlist-wrapper ul li {
+    display: flex;
+    align-items: center;
+    min-height: 100px;
+}
+
+.playlist-wrapper ul li .video-image {
+    width: 100px;
+    height: 50px;
+    background-color: black;
+    margin-right: 20px;
+}
+
+.playlist-wrapper ul li a {
+    display: inline;
+    max-width: 380px;
+    color: black;
+    font-size: 22px;
+    line-height: 30px;
+    text-decoration: none;
+}
