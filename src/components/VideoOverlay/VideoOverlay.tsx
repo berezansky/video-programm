@@ -7,10 +7,11 @@ import './video-overlay.css';
 interface IVideoPlayerProps {
     videoRef: RefObject<HTMLDivElement>;
     onGoFullScreen: (height: number) => void;
+    onToggleTheatreMode: () => void;
 }
 
 export const VideoOverlay: FC<IVideoPlayerProps> = (props): JSX.Element => {
-    const {videoRef, onGoFullScreen} = props;
+    const { videoRef, onGoFullScreen, onToggleTheatreMode } = props;
 
     const goFullScreen = () => {
         if (videoRef.current?.requestFullscreen && !document.fullscreenElement) {
@@ -22,7 +23,7 @@ export const VideoOverlay: FC<IVideoPlayerProps> = (props): JSX.Element => {
 
     return (
        <div className="overlay">
-            <button onClick={goFullScreen}>
+            <button onClick={onToggleTheatreMode}>
                 <TheaterMode />
             </button>
             <button onClick={goFullScreen}>

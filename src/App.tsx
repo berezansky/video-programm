@@ -5,17 +5,30 @@ import { VideoPlayer } from './components/VideoPlayer/VideoPlayer';
 import videoList from './mock/videoList.json';
 
 import './app.css';
+import { IVideoList } from './Consts/Consts';
 
 function App() {
   const [currentVideo, setCurrentVideo] = useState(videoList[0]);
+  const [isTheatreMode, setIsTheatreMode] = useState(false);
+
+  const handleChangeVideo = (video: IVideoList) => () => {
+    setCurrentVideo(video);
+  }
+
+  const handleToggleTheatreMode = () => {
+    setIsTheatreMode((value) => !value);
+  }
 
   return (
     <div className="App">
       <div className="wrapper">
-        <VideoPlayer source={currentVideo.link} />
-        <PlayList playlist={videoList} />
+        <VideoPlayer onToggleTheatreMode={handleToggleTheatreMode} source={currentVideo.link} />
+        {!isTheatreMode ? <PlayList playlist={videoList} onChangeVideo={handleChangeVideo} /> : null}
       </div>
-      <VideoData title={currentVideo.title} />
+      <div className="title-wrapper">
+        <VideoData title={currentVideo.title} />
+        {isTheatreMode ? <PlayList playlist={videoList} onChangeVideo={handleChangeVideo} /> : null}
+      </div>
     </div>
   );
 }

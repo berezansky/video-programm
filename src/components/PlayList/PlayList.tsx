@@ -5,18 +5,19 @@ import './playlist.css'
 
 interface IPlaylistProps {
     playlist: IVideoList[];
+    onChangeVideo: (video: IVideoList) => () => void;
 }
 
 export const PlayList: FC<IPlaylistProps> = (props): JSX.Element => {
-    const {playlist} = props;
+    const { playlist, onChangeVideo } = props;
 
     return (
         <div className='playlist-wrapper'>
             <ul>
                 {playlist.map((el) => (
-                    <li>
+                    <li onClick={onChangeVideo(el)}>
                         <div className="video-image" />
-                        <a href={el.link}>{el.title}</a>
+                        <p>{el.title}</p>
                     </li>
                 ))}
             </ul>

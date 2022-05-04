@@ -12,6 +12,7 @@
     display: flex;
     align-items: center;
     min-height: 100px;
+    cursor: pointer;
 }
 
 .playlist-wrapper ul li .video-image {
@@ -21,7 +22,7 @@
     margin-right: 20px;
 }
 
-.playlist-wrapper ul li a {
+.playlist-wrapper ul li p {
     display: inline;
     max-width: 380px;
     color: black;

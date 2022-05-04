@@ -5,10 +5,11 @@ import './video-player.css';
 
 interface IVideoPlayerProps {
     source: string;
+    onToggleTheatreMode: () => void;
 }
 
 export const VideoPlayer: FC<IVideoPlayerProps> = (props): JSX.Element => {
-    const {source} = props;
+    const { source, onToggleTheatreMode } = props;
 
     const [isVisibleOverlay, setIsVisibleOverlay] = useState<boolean>(false);
     const [overlayHeight, setOverlayHeight] = useState<number>(500);
@@ -31,7 +32,7 @@ export const VideoPlayer: FC<IVideoPlayerProps> = (props): JSX.Element => {
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen />
-            {isVisibleOverlay ? <VideoOverlay onGoFullScreen={handleGoFullScreen} videoRef={videoRef} /> : null}
+            {isVisibleOverlay ? <VideoOverlay onToggleTheatreMode={onToggleTheatreMode} onGoFullScreen={handleGoFullScreen} videoRef={videoRef} /> : null}
         </div>
     )
 }
